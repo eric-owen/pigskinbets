@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/n-ochs/pigskinbets/issues"
   },
-  "homepage": "https://github.com/n-ochs/pigskinbets#readme"
+  "homepage": "https://github.com/n-ochs/pigskinbets#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mustache": "^4.1.0",
+    "oauth": "^0.9.15"
+  }
 }
