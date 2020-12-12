@@ -2,10 +2,11 @@ let db = [];
 let primaryId = 0;
 let userId = 0;
 
+const axios = require('axios');
 
 exports.games = (req, res) => {
-    res.send(db)
-}
+    res.render('bets')
+};
 
 exports.placeBets = (req, res) => {
     db.push({
@@ -21,4 +22,5 @@ exports.placeBets = (req, res) => {
     res.status(200).json({
         message: "Bet placed successfully, GL"
     });
-}
+};
+

@@ -4,13 +4,16 @@ const PORT = 3000;
 
 
 const betRoutes = require('./routes/bets')
+const performanceRoutes = require('./routes/performance')
 
 //OAuth Configuration
 const OAuth = require('oauth');
 const session = require('express-session');
 
+app.use(express.static('public'))
+
 //Middleware
-app.set('view engine', 'mustache');
+app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -22,7 +25,8 @@ app.get('/', (req, res) => {
 });
 
 
-app.use('/bets', betRoutes)
+app.use('/bets', betRoutes);
+app.use('/performance', performanceRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
