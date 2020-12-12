@@ -4,6 +4,7 @@ const PORT = 3000;
 
 
 const betRoutes = require('./routes/bets')
+const performanceRoutes = require('./routes/performance')
 
 //OAuth Configuration
 const OAuth = require('oauth');
@@ -22,7 +23,8 @@ app.get('/', (req, res) => {
 });
 
 
-app.use('/bets', betRoutes)
+app.use('/bets', betRoutes);
+app.use('/performance', performanceRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);

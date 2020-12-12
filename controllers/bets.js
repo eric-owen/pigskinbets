@@ -5,7 +5,7 @@ let userId = 0;
 
 exports.games = (req, res) => {
     res.send(db)
-}
+};
 
 exports.placeBets = (req, res) => {
     db.push({
@@ -21,4 +21,5 @@ exports.placeBets = (req, res) => {
     res.status(200).json({
         message: "Bet placed successfully, GL"
     });
-}
+};
+
