@@ -2,6 +2,7 @@ let db = [];
 let primaryId = 0;
 let userId = 0;
 
+const axios = require('axios');
 
 exports.games = (req, res) => {
     res.render('bets')
