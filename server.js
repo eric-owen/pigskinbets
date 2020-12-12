@@ -10,8 +10,10 @@ const performanceRoutes = require('./routes/performance')
 const OAuth = require('oauth');
 const session = require('express-session');
 
+app.use(express.static('public'))
+
 //Middleware
-app.set('view engine', 'mustache');
+app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

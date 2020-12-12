@@ -4,7 +4,7 @@ let userId = 0;
 
 
 exports.games = (req, res) => {
-    res.send(db)
+    res.render('bets')
 };
 
 exports.placeBets = (req, res) => {
