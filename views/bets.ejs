@@ -1,9 +1,13 @@
 <body>
+
     <head>
         <link rel="stylesheet" href="../style/style.css">
+
     </head>
 
     <header>
+
+
         <nav class="nav-row">
             <div class="topnav">
                 <a class="active" href="#">Home</a>
@@ -17,14 +21,13 @@
             </div>
         </nav>
     </header>
-    <section class="bets-list">
+    <section class="bets-page">
         <div class="bet-headers">
             <span></span>
             <span></span>
             <span>Spread</span>
             <span>Moneyline</span>
             <span>O/U</span>
-            <label for="cars">Choose a car:</label>
             <form>
                 <select name="week" id="week-selector">
                     <option value="default">Choose a week</option>
@@ -44,35 +47,28 @@
                     <option value="3">Week-3</option>
                     <option value="2">Week-2</option>
                     <option value="1">Week-1</option>
-            </select>
+                </select>
+            </form>
+
+        </div>
+        <div class='bets-list'></div>
+
+    </section>
+    <section class="bet-slip">
+        <h4>Bet Slip</h4>
+        <div class="pending-bet">
+            empty
+        </div>
+        <form>
+            <div class="confirm">
+                <span>Risk: </span>
+                <input type="number" id="betamount" name="betamount" size="9"><br>
+                <span>Potentional winnings: </span>
+                <span class="amount">$0.00</span><br>
+                <button type="button" id="placebet">Place Bets</button>
+            </div>
+
         </form>
-
-        </div>
-        <div class="indiv-bet">
-            <div class="col date">
-                <p>12/10/2020</p>
-                <p>1:00 PM</p>
-            </div>
-            <div class="col teams">
-                <p>Pats</p>
-                <p>Dolphins</p>
-            </div>
-            <div class="col spread">
-                <p>-10</p>
-                <p>+10</p>
-            </div>
-            <div class="col moneyline">
-                <p>-200</p>
-                <p>+200</p>
-            </div>
-            <div class="col total">
-                <p>O49.5 -100</p>
-                <p>U49.5 -100</p>
-            </div>
-
-        </div>
-        
-        
 
     </section>
 
