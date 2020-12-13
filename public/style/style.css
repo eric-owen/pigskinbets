@@ -6,7 +6,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #ddd
 }
 
 html {
@@ -15,6 +14,7 @@ html {
     font-size: 20px;
     font-weight: 300;
     text-rendering: optimizeLegibility;
+    background-color: #ddd;
 }
 
 /* --------------------------------------------------- */
@@ -44,14 +44,12 @@ html {
 }
 
 
-.topnav a.active {
+.topnav a.current {
     background-color: #CB2125;
     color: white;
 }
 
-.topnav a.active:hover {
-    background-color: #ce6566;
-}
+
 
 .topnav-right {
     float: right;
@@ -62,11 +60,14 @@ html {
 /* --------------------------------------------------- */
 
 
-
 .indiv-bet {
     display: flex;
     justify-content: space-evenly;
     width: 70%;
+    margin: 2rem;
+    padding: 1rem;
+    border: 1px solid black;
+    background-color: white;
 }
 
 
@@ -86,12 +87,9 @@ html {
 .bet-slip h4,
 .pending-bet {
     text-align: center;
-    background-color: white;
 }
 
-.bet-slip span {
-    background-color: #354350;
-}
+
 
 .confirm {
     margin-top: 5rem;
