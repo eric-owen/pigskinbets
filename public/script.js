@@ -5,6 +5,7 @@ async function getScores(week) {
     return await response.data.data;
 };
 
+
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('week-selector').value = "default";
     document.getElementById('week-selector').addEventListener('change', async e => {
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             games.forEach(game => {
-
+                console.log(game)
                 // creates and appends each indiividual bet div
                 const createDiv = document.createElement('div')
                 createDiv.classList.add('indiv-bet')
@@ -45,10 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const possession = (game.status.possession) ? `${game.status.possession}'s ball` : game.state
 
                 // renders html to the page
+
+
                 createDiv.innerHTML = `
                     
                         <div class="updates">
-                            <span>${possession}, ${game.status.state}</span>
+                            <span>${possession}</span> <span>${game.status.state}</span>
                         </div>
                         <div class="indiv">
                         <div class="away">
@@ -92,13 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const betTeam = (betType === 'Total') ? e.currentTarget.getAttribute('bet-type') : betAttributesEl.querySelector('.team').innerText
 
                 // render html to the bet slip 
+
+
                 selectedBetEl.innerHTML = `
                 
                     <p class="bet-info">${betTeam} ${betType} ${betOdds}</p>
                     
-                    <p> ${currentAwayTeam} at ${currentHomeTeam}</p>
-                    <p class="bet-money ">Risk: <input type="number" class="risk"></p>
-                    <p class="bet-money ">Potential winnings: <span class="winnings">0</span></p>
+                    <p> ${currentAwayTeam} @ ${currentHomeTeam}</p>
+                    <p class="bet-money top">Risk: <input type="number" class="risk"></p>
+                    <p class="bet-money">Potential winnings: <span class="winnings">0</span></p>
                     <button type="button">Submit Bet</button>
                     <button type="button" class="remove">Remove Bet</button>
                 
@@ -113,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelector('.risk').addEventListener('input', e => {
                     let multiplier = Number(betOdds) / 100
                     let input = Number(e.target.value)
-                    let winnings = (betOdds > 0) ? multiplier * input : (input / multiplier) * -1
+                    let winnings = (betOdds > 0) ? multiplier * input : Math.abs((input / multiplier))
 
                     // renders calculated winnings to screen
                     document.querySelector('.winnings').innerHTML = winnings.toFixed(2)

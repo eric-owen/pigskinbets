@@ -1,1 +1,39 @@
-<!-- this page will be displaying the users performance through ejs templating -->
+<body>
+
+    <head>
+        <link rel="stylesheet" href="../style/style.css">
+
+    </head>
+
+    <header>
+
+
+        <nav class="nav-row">
+            <div class="topnav">
+                <a href="#">Home</a>
+                <a href="#">Bets</a>
+                <a href="#" class="current">Performance</a>
+                <a href="#">Profile</a>
+
+                <div class="topnav-right">
+                    <a href="#">Log In</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="visual-data">
+        <div class="chart-div">
+            <canvas id="line-chart" width="400" height="400"></canvas>
+            <div class="small-charts">
+                <canvas id="pie-chart" width="400" height="400"></canvas>
+                <canvas id="bar-chart" width="400" height="400"></canvas>
+            </div>
+    </section>
+
+    <section class="hist-bets">
+
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="performance-script.js"></script>
+</body>
