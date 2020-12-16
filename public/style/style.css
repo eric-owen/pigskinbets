@@ -6,15 +6,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 html {
-    color: #555;
-    font-family: 'lato', 'ariel', 'sans-serif';
-    font-size: 20px;
-    font-weight: 300;
+    color: black;
+    font-size: 17px;
     text-rendering: optimizeLegibility;
+    background-color: #ddd;
 }
 
 /* --------------------------------------------------- */
@@ -23,7 +21,7 @@ html {
 
 
 .topnav {
-    background-color: #333;
+    background-color: #354350;
     overflow: hidden;
 }
 
@@ -33,36 +31,140 @@ html {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    background-color: #354350;
 }
 
 
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-
-.topnav a.active {
-    background-color: #e67e22;
+    background-color: #CB2125;
     color: white;
 }
+
+
+.topnav a.current {
+    background-color: #CB2125;
+    color: white;
+}
+
 
 
 .topnav-right {
     float: right;
 }
 
+
+
 /* --------------------------------------------------- */
 /* BETS PAGE */
 /* --------------------------------------------------- */
 
-/* headers */
-
-.indiv-bet {
-    display: flex;
-    justify-content: space-between;
-    /* align-content: center; */
+#week-selector {
+    margin-bottom: 1rem;
 }
 
-/* bets section */
+/* bet slips */
+
+.bets-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    width: 75%;
+
+}
+
+.indiv {
+    margin: 0rem;
+    margin-bottom: 2rem;
+    background-color: white;
+    box-shadow: .1rem .1rem .2rem;
+}
+
+.away,
+.home {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.team,
+.home button,
+.away button {
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: .3rem;
+}
+
+.updates {
+    background-color: #354350;
+    color: white;
+    padding: .3rem;
+    width: 33.5%;
+
+}
+
+.team {
+    background-color: #E7F0F8;
+}
+
+.score {
+    background-color: #354350;
+    color: white;
+    width: 50%;
+    text-align: center;
+    padding: .3rem;
+}
+
+.home button:hover,
+.away button:hover {
+    background-color: #E7F0F8;
+}
+
+.home button:focus,
+.away button:focus {
+    background-color: #CB2125;
+    color: white;
+}
+
+
+/* bet cart */
+
+.bet-cart {
+    width: 22%;
+    height: auto;
+    border: 1px solid #354350;
+    background-color: white;
+    position: fixed;
+    left: 77%;
+}
+
+.bet-cart h3 {
+    color: #CB2125;
+    text-align: center;
+}
+
+.selected-bet {
+    text-align: center;
+    font-size: 80%;
+    padding: .5rem;
+    margin: .5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.bet-info {
+    word-spacing: .5rem;
+    margin-bottom: .5rem;
+}
+
+
+.bet-money {
+    display: flex;
+    justify-content: space-between;
+    margin: .2rem;
+}
+
+.risk {
+    width: 20%
+}

@@ -1,15 +1,20 @@
 <body>
+
     <head>
         <link rel="stylesheet" href="../style/style.css">
+
     </head>
 
     <header>
+
+
         <nav class="nav-row">
             <div class="topnav">
                 <a class="active" href="#">Home</a>
-                <a href="#">Bets</a>
+                <a href="#" class="current">Bets</a>
                 <a href="#">Performance</a>
                 <a href="#">Profile</a>
+
                 <div class="topnav-right">
                     <a href="#">Sign Up</a>
                     <a href="/google">Log In</a>
@@ -17,64 +22,41 @@
             </div>
         </nav>
     </header>
-    <section class="bets-list">
-        <div class="bet-headers">
-            <span></span>
-            <span></span>
-            <span>Spread</span>
-            <span>Moneyline</span>
-            <span>O/U</span>
-            <label for="cars">Choose a car:</label>
-            <form>
-                <select name="week" id="week-selector">
-                    <option value="default">Choose a week</option>
-                    <option value="16">Week-16</option>
-                    <option value="15">Week-15</option>
-                    <option value="14">Week-14</option>
-                    <option value="13">Week-13</option>
-                    <option value="12">Week-12</option>
-                    <option value="11">Week-11</option>
-                    <option value="10">Week-10</option>
-                    <option value="9">Week-9</option>
-                    <option value="8">Week-8</option>
-                    <option value="7">Week-7</option>
-                    <option value="6">Week-6</option>
-                    <option value="5">Week-5</option>
-                    <option value="4">Week-4</option>
-                    <option value="3">Week-3</option>
-                    <option value="2">Week-2</option>
-                    <option value="1">Week-1</option>
+    <section class="bets-page">
+        <form>
+            <select name="week" id="week-selector">
+                <option value="default">Choose a week</option>
+                <option value="16">Week-16</option>
+                <option value="15">Week-15</option>
+                <option value="14">Week-14</option>
+                <option value="13">Week-13</option>
+                <option value="12">Week-12</option>
+                <option value="11">Week-11</option>
+                <option value="10">Week-10</option>
+                <option value="9">Week-9</option>
+                <option value="8">Week-8</option>
+                <option value="7">Week-7</option>
+                <option value="6">Week-6</option>
+                <option value="5">Week-5</option>
+                <option value="4">Week-4</option>
+                <option value="3">Week-3</option>
+                <option value="2">Week-2</option>
+                <option value="1">Week-1</option>
             </select>
         </form>
 
+        <div class="bet-cart">
+            <h3>Bet Slip</h3>
+            <div class="selected-bet">
+                <em>Please select a bet</em>
+            </div>
         </div>
-        <div class="indiv-bet">
-            <div class="col date">
-                <p>12/10/2020</p>
-                <p>1:00 PM</p>
-            </div>
-            <div class="col teams">
-                <p>Pats</p>
-                <p>Dolphins</p>
-            </div>
-            <div class="col spread">
-                <p>-10</p>
-                <p>+10</p>
-            </div>
-            <div class="col moneyline">
-                <p>-200</p>
-                <p>+200</p>
-            </div>
-            <div class="col total">
-                <p>O49.5 -100</p>
-                <p>U49.5 -100</p>
-            </div>
+        <div class='bets-list'></div>
 
-        </div>
-        
-        
+
 
     </section>
+
 
     <footer>
 
