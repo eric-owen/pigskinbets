@@ -3,6 +3,7 @@ const app = express();
 require('dotenv').config();
 const PORT = 3000;
 
+const homeRoutes = require('./routes/home');
 const betRoutes = require('./routes/bets');
 const performanceRoutes = require('./routes/performance');
 
@@ -19,14 +20,6 @@ app.use(cookieSession({
     name: 'pigskinbets-session',
     keys: ['key1', 'key2']
 }));
-
-// const isLoggedIn = (req, res, next) => {
-//     if (reg.user) {
-//         next();
-//     } else {
-//         res.status(401);
-//     };
-// }; pass isLoggedIn function into the bets route before (req, res)
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -51,10 +44,11 @@ function(accessToken, refreshToken, profile, done) {
 
 app.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/bets' }),
+app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
 function(req, res) {
+    console.log(req.user)
     // Successful authentication, redirect home.
-    res.redirect('/bets');
+    res.redirect('/');
 });
 
 //Static Files
@@ -66,14 +60,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //Routes
-app.get('/', (req, res) => {
-    res.send({
-        message: "website running"
-    });
-});
-
-
-app.use('/bets', betRoutes);
+app.use('/', homeRoutes)
+app.use('/bets', passport.authenticate('google', { failureRedirect: '/' }, { scope: ['profile', 'email'] }),
+    function(req, res) {
+        res.redirect('/');
+}, betRoutes);
 app.use('/performance', performanceRoutes);
 
 app.listen(PORT, () => {
