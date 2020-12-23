@@ -23,6 +23,13 @@ html {
 .topnav {
     background-color: #354350;
     overflow: hidden;
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    bottom: 95%;
+    border-bottom: 2px solid white;
+    padding-bottom: 3rem;
 }
 
 .topnav a {
@@ -53,7 +60,7 @@ html {
 }
 
 /* --------------------------------------------------- */
-/* REUSABLE CONTENT */
+/* animations */
 /* --------------------------------------------------- */
 
 /* fade in effect */
@@ -62,7 +69,7 @@ html {
 .indiv,
 .updates,
 .selected-bet * {
-    animation: fadeIn ease .7s;
+    animation: fadeIn ease-in-out .7s, swoop .7s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -74,6 +81,19 @@ html {
         opacity: 1;
     }
 }
+
+/* swoop in effect */
+
+@keyframes swoop {
+    from {
+        transform: translate(-10%)
+    }
+
+    to {
+        transform: translate(0%)
+    }
+}
+
 
 /* --------------------------------------------------- */
 /* BETS PAGE */
@@ -128,7 +148,6 @@ html {
     display: flex;
     justify-content: space-between;
 
-
 }
 
 
@@ -148,13 +167,24 @@ html {
 
 .home button:hover,
 .away button:hover {
-    background-color: #E7F0F8;
+    background-color: #c6e2fa;
+    cursor: pointer;
 }
 
 .home button:focus,
 .away button:focus {
     background-color: #CB2125;
     color: white;
+}
+
+
+#week-selector {
+    margin: 3rem 0 1rem 1rem;
+    background-color: white;
+    color: #354350;
+    padding: .2rem;
+    border-radius: .2rem;
+
 }
 
 
@@ -167,11 +197,13 @@ html {
     background-color: white;
     position: fixed;
     left: 77%;
+    top: 8%;
 }
 
 .bet-cart h3 {
     color: #CB2125;
     text-align: center;
+    padding: .5rem;
 }
 
 .selected-bet {
@@ -206,6 +238,17 @@ html {
     width: 20%
 }
 
+.bet-cart button {
+    padding: .2rem;
+
+}
+
+.bet-cart button:hover {
+    cursor: pointer;
+    background-color: #CB2125;
+    color: white
+}
+
 
 /* --------------------------------------------------- */
 /* PERFORMANCE PAGE */
@@ -217,6 +260,7 @@ html {
     background-color: white;
     margin: 2rem;
     box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2);
+
 }
 
 .small-charts {
@@ -230,4 +274,32 @@ html {
     display: flex;
     width: 50%;
 
+}
+
+/* history */
+
+.hist-head,
+.individual {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    background: white;
+    border-radius: .5rem;
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.data,
+.head {
+    flex: 1 1 10rem;
+    text-align: center;
+    border: 1px solid #354350;
+    padding: .5rem;
+    align-items: center;
+
+}
+
+.head {
+    font-size: 1.5rem;
+    border-bottom: solid #354350;
 }
