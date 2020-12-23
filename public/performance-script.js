@@ -1,6 +1,19 @@
 const fakeData = [12, 19, 7, 10, 11, 5, 3]
 const fakeDates = ['12/1', '12/3', '12/7', '12/9', '12/10', '12/12', '12/15']
 
+
+const winLossData = {
+    wins: 10,
+    losses: 3
+}
+
+const betTypesData = {
+    spread: 1,
+    moneyline: 2,
+    total: 3
+}
+
+
 Chart.defaults.scale.ticks.beginAtZero = true
 const ctxLine = document.getElementById('line-chart')
 const ctxBar = document.getElementById('bar-chart')
@@ -28,7 +41,7 @@ const barChart = new Chart(ctxBar, {
         labels: ['Wins', 'Losses'],
         datasets: [{
             label: 'W/L',
-            data: [13, 15],
+            data: [winLossData.wins, winLossData.losses],
             backgroundColor: [
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(255, 99, 132, 0.2)'
@@ -49,7 +62,7 @@ const pieChart = new Chart(ctxPie, {
         labels: ['Spread', 'Moneyline', 'Total'],
         datasets: [{
             label: 'Bets Placed by Type',
-            data: [3, 5, 10],
+            data: [betTypesData.spread, betTypesData.moneyline, betTypesData.total],
             backgroundColor: [
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
@@ -65,3 +78,6 @@ const pieChart = new Chart(ctxPie, {
     }
 
 })
+
+
+const data = document.querySelectorAll('.data')
