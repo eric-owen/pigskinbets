@@ -12,6 +12,7 @@ const performanceRoutes = require('./routes/performance');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const cookieSession = require('cookie-session');
+const { home } = require('./controllers/home');
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -44,9 +45,9 @@ function(accessToken, refreshToken, profile, done) {
 
 app.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
-function(req, res) {
-    console.log(req.user)
+app.get('/google/callback', 
+    passport.authenticate('google', { failureRedirect: '/' }),
+    function(req, res) {
     // Successful authentication, redirect home.
     res.redirect('/');
 });
@@ -58,14 +59,23 @@ app.use(express.static('public'))
 app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+const isLoggedIn = (req, res, next) => {
+    if (req.session.passport && req.session.passport.user) {
+        next();
+    } else {
+        res.redirect('/');
+    };
+};
 
 //Routes
-app.use('/', homeRoutes)
-app.use('/bets', passport.authenticate('google', { failureRedirect: '/' }, { scope: ['profile', 'email'] }),
-    function(req, res) {
-        res.redirect('/');
-}, betRoutes);
-app.use('/performance', performanceRoutes);
+app.use('/', homeRoutes);
+app.use('/bets', isLoggedIn, betRoutes);
+app.use('/performance', isLoggedIn, performanceRoutes);
+app.get('/logout', (req, res) => {
+    req.session = null;
+    req.logout();
+    res.redirect('/');
+});
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
