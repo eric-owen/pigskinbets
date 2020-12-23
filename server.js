@@ -3,6 +3,7 @@ const app = express();
 require('dotenv').config();
 const PORT = 3000;
 
+const homeRoutes = require('./routes/home');
 const betRoutes = require('./routes/bets');
 const performanceRoutes = require('./routes/performance');
 
@@ -11,6 +12,7 @@ const performanceRoutes = require('./routes/performance');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const cookieSession = require('cookie-session');
+const { home } = require('./controllers/home');
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -19,14 +21,6 @@ app.use(cookieSession({
     name: 'pigskinbets-session',
     keys: ['key1', 'key2']
 }));
-
-// const isLoggedIn = (req, res, next) => {
-//     if (reg.user) {
-//         next();
-//     } else {
-//         res.status(401);
-//     };
-// }; pass isLoggedIn function into the bets route before (req, res)
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -51,10 +45,11 @@ function(accessToken, refreshToken, profile, done) {
 
 app.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/bets' }),
-function(req, res) {
+app.get('/google/callback', 
+    passport.authenticate('google', { failureRedirect: '/' }),
+    function(req, res) {
     // Successful authentication, redirect home.
-    res.redirect('/bets');
+    res.redirect('/');
 });
 
 //Static Files
@@ -64,17 +59,23 @@ app.use(express.static('public'))
 app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+const isLoggedIn = (req, res, next) => {
+    if (req.session.passport && req.session.passport.user) {
+        next();
+    } else {
+        res.redirect('/');
+    };
+};
 
 //Routes
-app.get('/', (req, res) => {
-    res.send({
-        message: "website running"
-    });
+app.use('/', homeRoutes);
+app.use('/bets', isLoggedIn, betRoutes);
+app.use('/performance', isLoggedIn, performanceRoutes);
+app.get('/logout', (req, res) => {
+    req.session = null;
+    req.logout();
+    res.redirect('/');
 });
-
-
-app.use('/bets', betRoutes);
-app.use('/performance', performanceRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
