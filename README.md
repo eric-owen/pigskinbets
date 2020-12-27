@@ -36,7 +36,7 @@ Website is deployed to X and running stable.
 
 [Nick Ochs](https://github.com/n-ochs),
 [Eric Owen](https://github.com/eric-owen),
-[Joseph Emerson](https://github.com/Joe-dev13),
+[Joseph Epherson](https://github.com/Joe-dev13)
 
 ## Future updates
 
