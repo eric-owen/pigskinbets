@@ -339,23 +339,40 @@ header {
     background: url('https://i.imgur.com/szsEMJF.png') no-repeat;
     background-size: contain;
     height: 200px;
-    width: 400px;
-    border: solid red;
+    width: 200px;
+    /* border: solid black; */
 }
 
 .watch-img {
     background: url('https://i.imgur.com/Hj0sWco.png') no-repeat;
     background-size: contain;
     height: 200px;
-    width: 400px;
-    border: solid red;
+    width: 200px;
+    /* border: solid black; */
 }
 
 .win-img {
     background: url('https://i.imgur.com/HbeiUSe.png') no-repeat;
     background-size: contain;
     height: 200px;
-    width: 400px;
-    border: solid red;
+    width: 200px;
+    /* border: solid black; */
 }
 
+.sub-title {
+    text-align: center;
+    margin: 2%;
+}
+
+.step-title {
+    margin: 1%;
+}
+
+.get-started {
+    text-align: center;
+}
+
+.banner {
+    height: 400px;
+    text-align: center;
+}
