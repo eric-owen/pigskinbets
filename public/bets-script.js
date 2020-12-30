@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const spreadOddsHome = (!game.odds.current.spread) ? 'TBD' : game.odds.current.spread.home
             const possession = (game.status.possession) ? `${game.status.possession}'s ball` : game.state
 
+
             // checks for which team is favored to assign the correct spread value
             const checkFav = (!game.odds.current.spread) ? null : game.odds.current.spread.favorite
             let spreadAwayFav
@@ -62,14 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="indiv">
                 <div class="away">
                     <span class="score">${awayScore}</span>
-                    <span class="team away-team">${game.away.mascot}</span>
+                    <div class="img"><img src="${game.away.logo}"></div><span class="team away-team">${game.away.mascot}</span>
                     <button value="Spread" type="button" class="odds-button" odds=${spreadOddsAway}>${spreadAwayFav} (${spreadOddsAway})</button>
                     <button value="Moneyline" type="button" class="odds-button" odds=${awayMl}>${awayMl}</button>
                     <button value="Total" bet-type="Over" type="button" class="odds-button" odds=${currentOver}>O${totalValue} (${currentOver})</button>
                 </div>
                 <div class="home">
                     <span class="score">${homeScore}</span>
-                    <span class="team home-team">${game.home.mascot}</span>
+                    <div class="img"><img src="${game.home.logo}"></div><span class="team home-team">${game.home.mascot}</span>
                     <button value="Spread" type="button" class="odds-button" odds=${spreadOddsHome}>${spreadHomeFav} (${spreadOddsHome})</button>
                     <button value="Moneyline" type="button" class="odds-button" odds=${homeMl}>${homeMl}</button>
                     <button value="Total" bet-type="Under" type="button" class="odds-button" odds=${currentUnder}>U${totalValue} (${currentUnder})</button>
