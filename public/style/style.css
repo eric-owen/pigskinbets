@@ -303,3 +303,22 @@ html {
     font-size: 1.5rem;
     border-bottom: solid #354350;
 }
+
+/* --------------------------------------------------- */
+/* HOME PAGE */
+/* --------------------------------------------------- */
+
+.title-1 {
+    text-align: center;
+}
+
+header {
+    height: 5vh;
+}
+
+.pick-img {
+    background: url('pick.jpg');
+    height: 10vw;
+    width: 10vw
+}
+

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         games.forEach(game => {
 
             // creates and appends each indiividual bet div
-            console.log(game)
+            // console.log(game)
             const createDiv = document.createElement('div')
             createDiv.classList.add('indiv-bet')
             betClass.appendChild(createDiv)
@@ -137,7 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 })
 
+                document.querySelector('.submit').addEventListener('click', e => {
+                    const thisBet = document.querySelector('.bet-info').innerHTML;
+                    sessionStorage.setItem("bet", thisBet);
+                })
+
             })
+
         }
 
     });
