@@ -261,12 +261,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('fav-team-selector').addEventListener('change', () => {
         let favoriteTeam = document.getElementById('fav-team-selector');
         let favoriteTeamValue = favoriteTeam.value;
-        console.log(favoriteTeamValue)
         let teamData = teams.find((favTeam) => {
             return favoriteTeamValue === favTeam.name;
         });
         let teamColors = teamData.colors
-        console.log(teamColors)
         document.querySelector('.topnav').style.backgroundColor = teamColors.primary
         document.querySelector('a').style.backgroundColor = teamColors.secondary
         document.querySelectorAll('a.options').forEach((option) => {
