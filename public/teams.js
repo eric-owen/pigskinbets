@@ -269,7 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(teamColors)
         document.querySelector('.topnav').style.backgroundColor = teamColors.primary
         document.querySelector('a').style.backgroundColor = teamColors.secondary
-
-
+        document.querySelectorAll('a.options').forEach((option) => {
+            option.style.backgroundColor = teamColors.primary
+        });
     });
 });
