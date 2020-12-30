@@ -326,9 +326,36 @@ header {
     height: 5vh;
 }
 
+.steps {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
 .pick-img {
-    background: url('pick.jpg');
-    height: 10vw;
-    width: 10vw
+    /* display: flex;
+    flex-grow: 1; */
+    background: url('https://i.imgur.com/szsEMJF.png') no-repeat;
+    background-size: contain;
+    height: 200px;
+    width: 400px;
+    border: solid red;
+}
+
+.watch-img {
+    background: url('https://i.imgur.com/Hj0sWco.png') no-repeat;
+    background-size: contain;
+    height: 200px;
+    width: 400px;
+    border: solid red;
+}
+
+.win-img {
+    background: url('https://i.imgur.com/HbeiUSe.png') no-repeat;
+    background-size: contain;
+    height: 200px;
+    width: 400px;
+    border: solid red;
 }
 

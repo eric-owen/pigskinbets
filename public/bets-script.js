@@ -125,6 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // adds functionality to the remove button
                 document.querySelector('.remove').addEventListener('click', (e) => {
                     selectedBetEl.innerHTML = '<em>Please select a bet</em>'
+                    if(sessionStorage.length > 0) {
+                        sessionStorage.clear();
+                    };
                 })
 
                 // betting math logic depending on user input 
@@ -138,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 })
 
+                // saves bets to session storage
                 document.querySelector('.submit').addEventListener('click', e => {
                     const thisBet = document.querySelector('.bet-info').innerHTML;
                     sessionStorage.setItem("bet", thisBet);
