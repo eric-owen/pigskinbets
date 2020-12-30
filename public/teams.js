@@ -254,7 +254,7 @@ const teams = [
             "secondary": "#ffcd00"
         }
     }
-]
+];
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('fav-team-selector').value = "default";
@@ -264,11 +264,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let teamData = teams.find((favTeam) => {
             return favoriteTeamValue === favTeam.name;
         });
-        let teamColors = teamData.colors
-        document.querySelector('.topnav').style.backgroundColor = teamColors.primary
-        document.querySelector('a').style.backgroundColor = teamColors.secondary
+        let teamColors = teamData.colors;
+        document.querySelector('.topnav').style.backgroundColor = teamColors.primary;
+        document.querySelector('a').style.backgroundColor = teamColors.secondary;
         document.querySelectorAll('a.options').forEach((option) => {
-            option.style.backgroundColor = teamColors.primary
+            option.style.backgroundColor = teamColors.primary;
         });
     });
 });
