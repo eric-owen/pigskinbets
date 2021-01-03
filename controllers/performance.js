@@ -1,4 +1,4 @@
-const user = require('../delME')
+// const user = require('../delME')
 const mongoose = require('mongoose');
 // const db = mongoose.connection;
 
@@ -12,5 +12,5 @@ exports.performance = (req, res) => {
 
 exports.list = (req,res) => {
     
-    res.render('Bets',{currentBets});
+    res.render();
 }

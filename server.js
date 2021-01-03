@@ -185,7 +185,7 @@ app.post('/someUserRoute', (req , res) => {
 });
 
 app.delete('/someDeleteRoute', (req,res) => {
-    Bet.findOneAndRemove({ betTeam: 'Saints'}, (err, data) => {
+    Bet.findOneAndRemove({ betTeam: req.body.data.betTeam }, (err, data) => {
         if(err) {
             return handleError(err)
         }else {
