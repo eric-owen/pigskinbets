@@ -141,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 })
 
+                // saves bets to session storage
                 document.querySelector('.submit').addEventListener('click', e => {
                     const thisBet = {
                         homeTeam: document.querySelector('.home-team').innerHTML,
