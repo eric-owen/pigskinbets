@@ -103,8 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // render html to the bet slip 
                 selectedBetEl.innerHTML = `
                 
-                    <p class="bet-info">${betTeam} ${betType} ${betOdds}</p>
-                    <p> ${currentAwayTeam} @ ${currentHomeTeam}</p>
+                    <p class="bet-info"> <span class="bet-team">${betTeam}</span> <span class="bet-type">${betType}</span> <span class="bet-odds">${betOdds}</span></p>
+                    <p class= "current-teams"> <span class="away-team">${currentAwayTeam}</span> @ <span class="home-team">${currentHomeTeam}</span></p>
                     <p class="bet-money top">Risk: <input type="number" class="risk" onkeypress="return event.charCode >= 48" min="1"></p>
                     <p class="bet-money">Potential winnings: <span class="winnings">0</span></p>
                     <button class="submit" type="button">Submit Bet</button>
@@ -125,6 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // adds functionality to the remove button
                 document.querySelector('.remove').addEventListener('click', (e) => {
                     selectedBetEl.innerHTML = '<em>Please select a bet</em>'
+                    if (sessionStorage > 0){
+                        sessionStorage.clear();
+                    };
                 })
 
                 // betting math logic depending on user input 
@@ -139,8 +142,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
 
                 document.querySelector('.submit').addEventListener('click', e => {
-                    const thisBet = document.querySelector('.bet-info').innerHTML;
-                    sessionStorage.setItem("bet", thisBet);
+                    const thisBet = {
+                        homeTeam: document.querySelector('.home-team').innerHTML,
+                        awayTeam: document.querySelector('.away-team').innerHTML,
+                        betType: document.querySelector('.bet-type').innerHTML,
+                        betTeam: document.querySelector('.bet-team').innerHTML,
+                        potentialWinnings: Number(document.querySelector('.winnings').innerHTML),
+                        betsOdds: Number(document.querySelector('.bet-odds').innerHTML),
+                        betRisk: Number(document.querySelector(".risk").value),
+                        gameStatus: document.querySelector('.status').innerHTML
+                    }
+                    dataForServer(thisBet);
+                    console.log(document.querySelector(".risk").value);
+                    console.log(typeof(thisBet));
                 })
 
             })
@@ -149,3 +163,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 });
+
+
+let dataForServer = async (data) => {
+    console.log(data)
+    axios.post('/someBetsRoute', {data}).then((response) => {
+        console.log(response);
+    });
+}
+
