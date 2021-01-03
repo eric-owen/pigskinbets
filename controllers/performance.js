@@ -10,6 +10,6 @@ exports.performance = (req, res) => {
 
 
 exports.list = (req,res) => {
-    
-    res.render('Bets',{currentBets});
+ 
+    res.render();
 }

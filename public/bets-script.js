@@ -125,9 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // adds functionality to the remove button
                 document.querySelector('.remove').addEventListener('click', (e) => {
                     selectedBetEl.innerHTML = '<em>Please select a bet</em>'
-                    if (sessionStorage > 0){
-                        sessionStorage.clear();
-                    };
+                    deleteDataFormServer();
                 })
 
                 // betting math logic depending on user input 
@@ -173,3 +171,9 @@ let dataForServer = async (data) => {
     });
 }
 
+let deleteDataFormServer = async (data) => {
+    console.log(data)
+    axios.post('/someDeleteRoute', {data}).then((response) => {
+        console.log(response);
+    });
+}
