@@ -1,4 +1,3 @@
-const user = require('../delME')
 const mongoose = require('mongoose');
 // const db = mongoose.connection;
 
