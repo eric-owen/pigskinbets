@@ -23,13 +23,7 @@ html {
 .topnav {
     background-color: #354350;
     overflow: hidden;
-    position: fixed;
-    top: 0%;
-    right: 0%;
-    left: 0%;
-    bottom: 100%;
-    border-bottom: 2px solid white;
-    padding-bottom: 3rem;
+
 }
 
 .topnav a {
@@ -318,61 +312,114 @@ img {
 /* HOME PAGE */
 /* --------------------------------------------------- */
 
-.title-1 {
-    text-align: center;
-}
-
-header {
-    height: 5vh;
-}
-
-.steps {
+.first {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, .8), transparent), url('pick.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.first span {
+    color: #CB2125
+}
+
+h1 {
+    font-size: 5rem;
+    padding: 1rem 0rem
+}
+
+h2 {
+    font-size: 2rem;
+    padding: 1rem 0rem;
+}
+
+.first a {
+    padding: 1rem 3rem;
+    background: #CB2125;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+
+}
+
+.first a:hover {
+    transition: width 1s ease-in-out;
+}
+
+
+h3 {
+    font-size: 2.5rem;
+    padding: .3rem;
+
+}
+
+.benefits-head {
+    background: #343c44;
+    padding: .3rem;
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.benefits-head h3 span {
+    color: #CB2125;
+}
+
+.benefits-head h4 {
+    padding: .3rem;
+    font-size: 1.1rem;
+}
+
+.cards {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    min-height: 70vh;
+    align-items: center;
     flex-wrap: wrap;
+}
+
+.card {
+    flex: 1 1 10rem;
+    min-height: 40vh;
+    margin: 0rem 1rem;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .1), 0 30px 30px rgba(0, 0, 0, .1);
     text-align: center;
 }
 
-.pick-img {
-    /* display: flex;
-    flex-grow: 1; */
-    background: url('https://i.imgur.com/szsEMJF.png') no-repeat;
-    background-size: contain;
-    height: 200px;
-    width: 200px;
-    /* border: solid black; */
-}
-
-.watch-img {
-    background: url('https://i.imgur.com/Hj0sWco.png') no-repeat;
-    background-size: contain;
-    height: 200px;
-    width: 200px;
-    /* border: solid black; */
-}
-
-.win-img {
-    background: url('https://i.imgur.com/HbeiUSe.png') no-repeat;
-    background-size: contain;
-    height: 200px;
-    width: 200px;
-    /* border: solid black; */
-}
-
-.sub-title {
-    text-align: center;
-    margin: 2%;
-}
-
-.step-title {
-    margin: 1%;
-}
-
-.get-started {
+.card-div {
+    background-color: #979797;
     text-align: center;
 }
 
-.banner {
-    height: 400px;
+.cards img {
+    max-width: 40%;
+    margin: 1rem;
+}
+
+.card h5,
+.card p {
+    padding: 1rem;
+}
+
+.card h5 {
+    font-size: 1.9rem;
+}
+
+.benefits h3 {
     text-align: center;
 }
