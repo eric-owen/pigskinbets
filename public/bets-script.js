@@ -1,7 +1,7 @@
 const API_Key = config.API_Key
 
 async function getScores(week) {
-    const response = await axios.get(`https://charlotte.rotogrinders.com/sports/nfl/events?key=${API_Key}&week=2020-reg-${week}`);
+    const response = await axios.get(`https://charlotte.rotogrinders.com/sports/nfl/events?key=${API_Key}&week=2020-${week}`);
     return await response.data.data;
 };
 
