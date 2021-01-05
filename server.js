@@ -3,9 +3,6 @@ const app = express();
 require('dotenv').config();
 const PORT = 3000;
 
-app.use(express.urlencoded());
-app.use(express.json());
-
 const homeRoutes = require('./routes/home');
 const betRoutes = require('./routes/bets');
 const performanceRoutes = require('./routes/performance');
@@ -50,6 +47,7 @@ const betSchema = new Schema({
 const userSchema = new Schema({
     name: String,
     userName: String,
+    favTeam: String,
     currentBankRoll: Number,
     history: {
         wins: Number,
@@ -140,7 +138,7 @@ app.get('/findSomeUserRoute', (req,res) => {
 app.post('/someBetsRoute', (req , res) => {
     // Adding info into database
     const newBet= new Bet({
-        userName: 'Big Money Mike',
+        userName: req.session.passport.user,
         betType: req.body.data.betType,
         betAmount: req.body.data.risk,
         homeTeam: req.body.data.homeTeam,
@@ -165,9 +163,10 @@ app.post('/someBetsRoute', (req , res) => {
 
 app.post('/someUserRoute', (req , res) => {
     // Adding info into database
-    const newUser= new Users({
+    const newUser= new User({
         name: 'MIke',
-        userName: 'Big Money Mike',
+        userName: req.session.user,
+        favTeam:'',
         currentBankRoll: 10000,
         history: {
             wins: 20,
@@ -218,7 +217,7 @@ app.use(express.static('public'))
 //Middleware
 app.set('view engine', 'ejs');
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded());
 const isLoggedIn = (req, res, next) => {
     if (req.session.passport && req.session.passport.user) {
         next();
