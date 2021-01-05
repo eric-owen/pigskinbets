@@ -44,29 +44,32 @@
 
         </header>
 
-        <!-- <div class="individual">
-            <div class="data date">11/18/2020</div>
-            <div class="data status">Win</div>
+
+    <% array.forEach((bet) => { %>
+        <div class="individual">
+            <div class="data date"><%= bet.date %></div>
+            <div class="data status"><%= bet.gameStatus %></div>
             <div class="data matchup">
-                <span class="away" value="jets">jets</span><br>
-                <span class="home" value="raiders">@ raiders</span>
+                <span class="away" ><%= bet.awayTeam %></span><br>
+                <span class="home" >@ <%= bet.homeTeam %></span>
             </div>
             <div class="data final-score">
                 <span class="away-score" value=10>10</span><br>
                 <span class="home-score" value=25>25</span>
             </div>
             <div class="data type">
-                <span class="bet-team">raiders</span><br>
-                <span class="bet-type">moneyline</span>
+                <span class="bet-team"><%= bet.betTeam %></span><br>
+                <span class="bet-type"><%= bet.betType %></span>
             </div>
-            <div class="data odds" value=-4>-4</div>
-            <div class="data risk" value=25>25</div>
-            <div class="data winnings" value=50>50</div>
-        </div> -->
-
+            <div class="data odds" value=-4><%= bet.odds %></div>
+            <div class="data risk" value=25><%= bet.risk %></div>
+            <div class="data winnings" value=50><%= bet.potentialWinnings %></div>
+        </div>
+    <%}); %>
 
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script src="performance-script.js"></script>
+    <!-- <script src="../public/p/.js"></script> -->
 </body>
