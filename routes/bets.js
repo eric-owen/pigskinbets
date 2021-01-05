@@ -11,4 +11,4 @@ router.get('/', controller.games); //will display all games that week
 
 router.post('/', controller.placeBets)//will submit users bets
 
-module.exports = router;
+module.exports = router; 
