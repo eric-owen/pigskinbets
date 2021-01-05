@@ -1,6 +1,6 @@
 # Pig Skin Bets
 
-URL goes here
+[Pig Skin Bets](https://sleepy-harbor-60617.herokuapp.com/)
 
 Pig Skin Bets is an online sportsbook for people that are looking to make their Sundays a little more interesting.
 
@@ -30,7 +30,7 @@ $ npm install
 
 ## Status
 
-Website is deployed to X and running stable.
+Website is deployed to Heroku and running stable.
 
 ## Contributors
 
