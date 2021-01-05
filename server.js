@@ -58,7 +58,7 @@ const userSchema = new Schema({
 let Bet = mongoose.model('Bet', betSchema);
 const User = mongoose.model('User', userSchema);
 
-
+module.exports = mongoose.model('Bet', betSchema, 'Bet');
 
 //Passport-GoogleOAuth20 Configuration
 const passport = require('passport');
@@ -119,7 +119,6 @@ app.get('/findSomeBetRoute', (req,res) => {
         message: 'These are your current bets',
         body: JSON.stringify(res.data)
     })
-    console.log(req.body);
 })
 
 app.get('/findSomeUserRoute', (req,res) => {
@@ -211,6 +210,20 @@ app.patch('/someUpdateRoute', (req,res) => {
     });
 })
 
+app.get('/performance', (req,res) => {
+    Bet.find({}, (err, data) => {
+        if(err){
+            console.log(err);
+        }else{
+            // console.log(data)
+            res.render('performance', {
+                array: data,
+                user: req.user
+            });
+        }
+    });
+})
+
 //Static Files
 app.use(express.static('public'))
 
@@ -227,6 +240,10 @@ const isLoggedIn = (req, res, next) => {
 };
 
 //Routes
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
 app.use('/', homeRoutes);
 app.use('/bets', isLoggedIn, betRoutes);
 app.use('/performance', isLoggedIn, performanceRoutes);
