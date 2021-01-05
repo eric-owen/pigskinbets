@@ -18,7 +18,7 @@ We are using a live sports data API to render our scores, odds, and scheduled ga
 
 ## Technologies and Dependencies
 
-[Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com/), [Express](https://expressjs.com/), [EJS](https://ejs.co/), [MongoDB](https://www.mongodb.com/), [Passport](http://www.passportjs.org/), [Google OAuth 2.0](http://www.passportjs.org/packages/passport-google-oauth20/), [dotenv](https://www.npmjs.com/package/dotenv).
+[Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com/), [Express](https://expressjs.com/), [EJS](https://ejs.co/), [MongoDB](https://www.mongodb.com/), [Passport](http://www.passportjs.org/), [Google OAuth 2.0](http://www.passportjs.org/packages/passport-google-oauth20/), [dotenv](https://www.npmjs.com/package/dotenv), [Mocha](https://mochajs.org/).
 
 ## Running locally
 
