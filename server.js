@@ -97,7 +97,7 @@ function(accessToken, refreshToken, profile, done) {
 
 app.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-app.get('sleepy-harbor-60617.herokuapp.com/google/callback', 
+app.get('/google/callback', //change this back to /google/callback
     passport.authenticate('google', { failureRedirect: '/' }),
     function(req, res) {
     // Successful authentication, redirect home.
