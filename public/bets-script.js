@@ -152,8 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         gameStatus: document.querySelector('.status').innerHTML
                     }
                     dataForServer(thisBet);
-                    console.log(document.querySelector(".risk").value);
-                    console.log(typeof(thisBet));
+                    alert("Bet placed successfully.")
                 })
 
             })
