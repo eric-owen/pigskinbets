@@ -5,7 +5,7 @@ const axios = require('axios');
 
 
 exports.games = (req, res) => {
-    res.render('Bets')
+    res.render('bets')
 };
 
 exports.placeBets = (req, res) => {
