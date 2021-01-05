@@ -14,7 +14,7 @@ Our bets page leverages a live sports API which provides statistics across all t
 
 ## Sources
 
-X
+We are using a live sports data API to render our scores, odds, and scheduled games.
 
 ## Technologies and Dependencies
 
