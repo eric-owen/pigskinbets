@@ -1,4 +1,4 @@
-const API_Key = config.API_Key
+// const API_Key = config.API_Key
 
 async function getScores(week) {
     const response = await axios.get(`https://charlotte.rotogrinders.com/sports/nfl/events?key=${API_Key}&week=2020-${week}`);
